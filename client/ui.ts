@@ -9,8 +9,8 @@ import { CalendarUI } from "./uis/calendar";
 import { ExamModeUI } from "./uis/screens/examscreen";
 
 export class UI {
-	public static readonly EXAM_MODE_CHECK_INTERVAL: number = 5 * 1000; // 5 seconds
-	public static readonly SHOW_EXAM_MODE_MINUTES_BEFORE_BEGIN: number = 20; // 20 minutes
+	public static readonly EXAM_MODE_CHECK_INTERVAL: number = parseInt(process.env.EXAM_MODE_CHECK_INTERVAL || '5000', 10);
+	public static readonly SHOW_EXAM_MODE_MINUTES_BEFORE_BEGIN: number = parseInt(process.env.EXAM_MODE_BEFORE_BEGIN_SHOW || '20');
 
 	private _infoBars: InfoBarsUI;
 	private _lockScreen: LockScreenUI | null = null;

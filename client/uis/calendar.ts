@@ -44,6 +44,12 @@ export class CalendarUI {
 		return text;
 	}
 
+       private _renderMarkdown(md: string | undefined): string {
+	       if (!md) return "";
+               // no header ids/mangling needed for simple cards
+               const html = marked.parse(md) as string;
+               return DOMPurify.sanitize(html);
+
 	private _greyEvents: string[] = ["bocal q&a", "bocal stand-up", "open hour", "open hour with the student council"];
 	private _isGreyEvent(event: Event42): boolean {
 		// If the name (even only partially) includes any of this._greyEvents, return true
@@ -158,7 +164,7 @@ export class CalendarUI {
 
 		const calendarEventDesc = document.createElement('div');
 		calendarEventDesc.classList.add('calendar-event-description');
-		calendarEventDesc.innerText = this._removeMarkdownSyntax(event.description);
+		calendarEventDesc.innerText = this._renderMarkdown(event.description);
 		calendarEventWrapper.appendChild(calendarEventDesc);
 
 		// Event details

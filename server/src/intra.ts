@@ -2,7 +2,7 @@ import Fast42 from '@codam/fast42';
 import { Event42, Exam42 } from './interfaces.js';
 
 const CAMPUS_ID = process.env.INTRA_CAMPUS_ID;
-const FETCH_EVENTS_UPCOMING_DAYS = 21; // 3 weeks
+const FETCH_EVENTS_UPCOMING_DAYS = parseInt(process.env.EVENTS_UPCOMING_DAYS || '21', 10);
 const EVENT_KINDS_FILTER = [
 	'rush', 'piscine', 'partnership', // pedago
 	'conference', 'meet_up', 'event', // event

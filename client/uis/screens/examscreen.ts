@@ -4,8 +4,8 @@ import { LoginScreenUI } from "./loginscreen";
 import { ExamForHost } from "../../data";
 
 export class ExamModeUI extends UIScreen {
-	public static readonly EXAM_USERNAME: string = 'exam';
-	public static readonly EXAM_PASSWORD: string = 'exam';
+	public static readonly EXAM_USERNAME: string = process.env.EXAM_USERNAME || 'exam';
+	public static readonly EXAM_PASSWORD: string = process.env.EXAM_PASSWORD || 'exam';
 
 	public readonly _form: UIExamModeElements;
 	private _examMode: boolean = false;
