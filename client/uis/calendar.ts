@@ -1,8 +1,8 @@
 import { DataJson, Event42 } from "../data";
 import { Data } from "../data";
 import { UI } from "../ui";
-import { DOMPurify } from "dompurify";
-import { marked } from "marked";
+import DOMPurify from "dompurify";
+import marked from "marked";
 
 export class CalendarUI {
 	private _calendar: HTMLDivElement;
@@ -48,9 +48,9 @@ export class CalendarUI {
 
 	private _renderMarkdown(md: string | undefined): string {
 		if (!md) return "";
-			// no header ids/mangling needed for simple cards
-			const html = marked.parse(md) as string;
-			return DOMPurify.sanitize(html);
+		// no header ids/mangling needed for simple cards
+		const html = marked.parse(md) as string;
+		return DOMPurify.sanitize(html);
 	}
 
 	private _greyEvents: string[] = ["bocal q&a", "bocal stand-up", "open hour", "open hour with the student council"];
