@@ -1,8 +1,8 @@
 import { DataJson, Event42 } from "../data";
 import { Data } from "../data";
 import { UI } from "../ui";
-import { DOMPurify } from "dompurify"
-import { marked } from "marked"
+import { DOMPurify } from "dompurify";
+import { marked } from "marked";
 
 export class CalendarUI {
 	private _calendar: HTMLDivElement;
